@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="common :: common-head">
+</head>
+<body>
+<div th:replace="common :: common-nav"></div>
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12" >
+            <h2 style="margin-top: 20px">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                发起
+            </h2>
+            <form action="/publish" method="post" id="postTextForm">
+                <div class="form-group">
+
+                    <label for="title" >标题(简单扼要):</label>
+                    <input type="text"  class="form-control" id="title" name="title"
+                           placeholder="请输入标题"
+                           required="true"
+                           autocomplete="off"
+                    >
+
+
+                </div>
+                <div class="form-group">
+                    <label fro="type" style="margin-right: 20px">选择分类:</label>
+                    <select class="selectpicker"  data-live-search="true" id="type"
+                            required="true"
+                            name="type"
+                            autocomplete="off"
+                    >
+                        <option selected value="0">请选择分类</option>
+                        <option>213</option>
+                        <option>123</option>
+                        <option>1234</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">简介:</label>
+                    <textarea  class="form-control" id="description" name="description" cols="30"
+                               rows="10"
+                               required="true"
+                               autocomplete="off"
+                    ></textarea>
+
+                </div>
+                <div class="form-group">
+                    <label for="tag" >添加标签：</label>
+                    <input type="text" class="form-control" id="tag" name="tag"
+                           placeholder="输入标签，请以英文输入法','隔开"
+                           autocomplete="off"
+                    >
+                </div>
+                <button type="submit" class="btn btn-success publish">发布</button>
+            </form>
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" >
+            <h3>文章发起指南</h3>
+            • 标题: 请用精简的语言描述您发布的内容，不超过25字<br>
+            • 分类：发起帖子选择发布的类型<br>
+            • 简介: 详细补充您的发布内容，并确保内容描述清晰直观, 并提供一些相关的资料：<br>
+            • 问题标题: 请用精简的语言描述您发布的问题，不超过25字<br>
+            • 问题补充: 详细补充您的问题内容，并确保问题描述清晰直观, 并提供一些相关的资料：<br>
+            • 选择标签: 选择一个或者多个合适的标签，不超过10个字<br>
+        </div>
+    </div>
+</div>
+</body>
+<script th:src="@{/js/postText/add.js}"></script>
+</html>

@@ -1,0 +1,64 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<body>
+<div  th:fragment="register-modal" class="modal fade " id="exampleModal" tabindex="-1" role="dialog" style="width: 100%"
+      aria-labelledby="exampleModalLabel">
+
+        <div class="modal-dialog" role="document" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">注册</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="layui-form" id="registerForm" action="/register" method="post"> <!-- 提示：如果你不想用form，你可以换成div
+                    等任何一个普通元素 -->
+                        <div class="form-group">
+                            <label for="name" class="control-label">用户名:</label>
+                            <input type="text" class="form-control" id="name" name="name" autocomplete="false"
+                                   placeholder="请填写一个帅气的用户名">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="control-label">邮箱:</label>
+                            <p style="clear: both"></p>
+                            <input type="email" class="form-control" name="email" id="email"
+                                   placeholder="邮箱将作为您的登录凭证" autocomplete="false" style="float:left;width: 85%">
+                            <button type="button" style="float:left;margin-left: 10px"
+                                    class="layui-btn layui-btn-normal layui-btn-disabled layui-btn-radius "
+                                    id="putEmail"
+                                    disabled="true">获取
+                            </button>
+                            <p style="clear: both"></p>
+                        </div>
+                        <div class="form-group" id="find-Email">
+                            <label for="code" class="control-label">邮箱码:</label>
+                            <input type="code" class="form-control" name="code" id="code"
+                                   placeholder="请进入您的邮箱查看邮件" autocomplete="false" >
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label">密码:</label>
+                            <input type="password" class="form-control" name="password" id="password"
+                                   autocomplete="false" placeholder="一个不为人知的秘密">
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordSecond" class="control-label">确认密码:</label>
+                            <input type="password" class="form-control" name="passwordSecond" id="passwordSecond"
+                                   placeholder="一个不为人知的秘密"
+                                   autocomplete="false" >
+                        </div>
+                        <div class="modal-footer">
+                                <button type="reset" class="btn btn-primary btn-radius">重置</button>
+                                <button type="button" class="btn btn-default register" data-dismiss="modal" >关闭</button>
+                                <button type="submit" class="btn btn-success">确认</button>
+                        </div>
+                    </form>
+                    <!--<form>
+
+                    </form>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

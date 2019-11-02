@@ -1,0 +1,82 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common-head">
+    <title>沙雕社区</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link th:href="@{/css/bootstrap/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap/bootstrap-theme.css}" rel="stylesheet">
+    <link th:href="@{/layUi/css/layui.css}" rel="stylesheet" media="all">
+    <script th:src="@{/js/jquery/jquery-3.4.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap/bootstrap.js}"></script>
+    <script th:src="@{/layUi/layui.js}"></script>
+    <!--<script th:src="@{/layUi/lay/modules/layer.js}"></script>-->
+    <!--下拉菜单-->
+    <link rel="stylesheet" th:href="@{/css/bootstrap/select/bootstrap-select.min.css}">
+    <script th:src="@{/js/bootstrap/bootstrap-select/bootstrap-select.js}"></script>
+    <script th:src="@{/js/bootstrap/bootstrap-select/defaults-zh_CN.js}"></script>
+    <!--表单验证-->
+    <link rel="stylesheet" th:href="@{/css/bootstrap/validator/bootstrapValidator.min.css}">
+    <script th:src="@{/js/bootstrap/bootstarp-validator/bootstrapValidator.min.js}"></script>
+    <link rel="shortcut icon" href="/img/pj.jpg">
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-default" th:fragment="common-nav">
+
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">沙雕社区</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">沙雕社区</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="搜索问题、话题或人">
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li th:if="${session.user != null}">
+                    <a th:href="@{/publish}"  class="btn" target="_blank">发起</a>
+                </li >
+                <li class="dropdown"th:if="${session.user != null}" >
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false" th:text="${session.user.getName()}"> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">消息中心</a></li>
+                        <li><a href="#">个人资料</a></li>
+                        <li><a th:href="@{/quit}" >退出</a></li>
+                    </ul>
+                </li>
+
+                <li  th:unless="${session.user != null}">
+                   <!-- <a style="float: right"
+                       href="https://github.com/login/oauth/authorize?client_id=0a7dfef5c21598878b6f&redirect_uri=http://localhost:8887/callback&scope=user&state=1">
+                        登录
+                    </a>-->
+                    <a href="#" style="float: right" data-toggle="modal" data-target="#exampleModalLogin">登录</a>
+                    <a href="#" style="float: right" data-toggle="modal" data-target="#exampleModal">注册</a>
+
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>-->
+</body>
+</html>

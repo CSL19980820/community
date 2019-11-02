@@ -1,0 +1,11 @@
+.main{
+    margin: 30px;
+    background-color: white;
+}
+a {
+    text-decoration:none;
+}
+.publish{
+    float:right;
+    margin-bottom: 30px;
+}
